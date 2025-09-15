@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>F1 Trailer</title>
+    </head>
+    <style>
+        *,
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #trailer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        .intro {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            font-size: 18px;
+            font-family: fantasy;
+        }
+        #btn {
+            border: none;
+            padding: 12px;
+            color: white;
+            background-color: black;
+            font-weight: 800;
+            margin-top: 20px;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        /* media query */
+
+        @media only screen and (max-width: 600px) {
+            body {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                background-color: grey;
+            }
+            #trailer {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: auto;
+            }
+            .intro {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                padding: 10px;
+                font-size: 12px;
+                font-family: fantasy;
+            }
+            #btn {
+                border: none;
+                padding: 12px;
+                color: white;
+                background-color: black;
+                font-weight: 800;
+                margin-top: 20px;
+                width: 150px;
+                cursor: pointer;
+            }
+            img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+    <body>
+        <video autoplay muted loop id="trailer">
+            <source src="trailer.mp4" type="video/mp4" />
+        </video>
+        <div class="intro">
+            <center>
+                <img src="logof1.png" alt="logo" width="150" height="150" />
+                <p>Pre-Order F1 25 Iconic Edition and receive the Lewis Hamilton Iconic Pack, up to 3 days early access, starting May 27th, and step into the cockpit of APXGP with unique gameplay inspired by F1® The Movie.</p>
+                <button id="btn" onclick="triggerBtn()">PAUSE</button>
+            </center>
+        </div>
+
+        <script>
+            const trailer = document.getElementById("trailer");
+            const btn = document.getElementById("btn");
+            function triggerBtn() {
+                if (trailer.paused) {
+                    trailer.play();
+                    btn.innerHTML = "PAUSE";
+                } else {
+                    trailer.pause();
+                    btn.innerHTML = "PLAY";
+                }
+            }
+        </script>
+    </body>
+</html>
